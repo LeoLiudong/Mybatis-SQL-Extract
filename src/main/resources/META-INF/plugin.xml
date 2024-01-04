@@ -1,18 +1,16 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
     <id>com.github.leoliudong.mybatissqlextract</id>
-    <name>Mybatis-SQL-Extract Template</name>
+    <name>Mybatis SQL Extract</name>
     <vendor>leoliudong</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
-
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.leoliudong.mybatissqlextract.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-    </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.leoliudong.mybatissqlextract.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
+    <actions>
+        <action id="com.github.leoliudong.mybatissqlextract.actions.MybatisSQLExtractAction"
+                class="com.github.leoliudong.mybatissqlextract.actions.MybatisSQLExtractAction" text="SQL Extract"
+                description="SQL提取和分析">
+            <add-to-group group-id="ConsoleView.PopupMenu" anchor="first"/>
+        </action>
+    </actions>
 </idea-plugin>
